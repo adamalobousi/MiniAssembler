@@ -1,6 +1,6 @@
-# TinyAssembler
+# MiniAssembler
 
-TinyAssembler is a small command-line assembler that converts a simplified assembly language into binary machine code. This project is written in C and uses standard libraries for file I/O and command-line argument parsing.
+MiniAssembler is a small command-line assembler that converts a simplified assembly language into binary machine code. This project is written in C and uses standard libraries for file I/O and command-line argument parsing.
 
 ---
 
@@ -57,6 +57,19 @@ beq x23, x24, 8<br>
 00000001000001111100011100110011<br>
 00000000000000010000000010100011<br>
 00000001100010111001010001100011<br>
+
+---
+
+## Error Handling
+-	Invalid CLI arguments → Program exits with Exit Code 1
+- Missing or inaccessible files → Program exits with Exit Code 1
+- Invalid instructions or registers → Program exits with Exit Code 1<br>
+
+**Examples for invalid instructions:**<br>
+- add x32, x1, x2 #'x32' is invalid<br>
+- li x3, 0x100000 #too large for immediate field<br>
+- add x1, x2 #missing third register<br>
+- mul x1, x2, x3 #'mul' is not a supported instruction<br>
 
 ---
 
