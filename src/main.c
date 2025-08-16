@@ -85,7 +85,7 @@ int main(int argc, char** argv) {
                 printf("Usage: assembler [options] <inputfile>\n"
                        "Options:\n"
                        "  -h, --help        Show this help message\n"
-                       "  -o, --output FILE Set output file path (default: a.out)\n");
+                       "  -o, --output FILE Set output file path (default: bin/output)\n");
                 return 0;
             case 'o':
                 outputPath = optarg;
@@ -104,7 +104,7 @@ int main(int argc, char** argv) {
 
     // Default output path if not specified
     if (!outputPath)
-        outputPath = "a.out";
+        outputPath = "bin/output";
 
     // Read input file
     char *input = read_file(inputPath);

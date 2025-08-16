@@ -38,24 +38,25 @@ TinyAssembler is a small command-line assembler that converts a simplified assem
 
 ## Bytecode-Format
 
-| 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 |  6 - 0 |       Type
-| 0000000 |   rs2   |  rs1    |  funct  |   rd   | opcode |       R-type 
-|                  imm                  |   rd   | opcode |       U-type 
-|imm[11:5]|   rs2   |   rs1   |  funct  |imm[4:0]| opcode |       B-type
+| 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 |  6 - 0 |  Typ   |
+|---------|---------|---------|---------|--------|--------|--------|
+| 0000000 |   rs2   |   rs1   |  funct  |   rd   | opcode | R-type |
+|   imm   |   imm   |   imm   |   imm   |   rd   | opcode | U-type |
+|imm[11:5]|   rs2   |   rs1   |  funct  |imm[4:0]| opcode | B-type |
 
 ---
 
 ## Example
 
-**Input:**
-add x14, x15, x16
-ld x1, x2
-beq x23, x24, 8
+**Input:**<br>
+add x14, x15, x16<br>
+ld x1, x2<br>
+beq x23, x24, 8<br>
 
-**Output:**
-00000001000001111100011100110011
-00000000000000010000000010100011
-00000001100010111001010001100011
+**Output:**<br>
+00000001000001111100011100110011<br>
+00000000000000010000000010100011<br>
+00000001100010111001010001100011<br>
 
 ---
 

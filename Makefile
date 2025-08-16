@@ -1,8 +1,10 @@
-MAIN := main.c
+MAIN := src/main.c
+ASSIGNMENT := src/assembler.c
+INCLUDE := include
 
-ASSIGNMENT := assembler.c
+ASSIGNMENT := src/assembler.c
 
-CFLAGS := 
+CFLAGS := -I$(INCLUDE)
 
 CC := $(shell command -v gcc || command -v clang)
 ifeq ($(strip $(CC)),)
@@ -10,7 +12,7 @@ ifeq ($(strip $(CC)),)
 endif
 
 SOURCES := $(MAIN) $(ASSIGNMENT)
-TARGET := $(basename $(ASSIGNMENT))
+TARGET := bin/assembler
 
 all: debug
 
@@ -20,9 +22,10 @@ release: CFLAGS += -O2
 release: $(TARGET)
 
 $(TARGET): $(SOURCES)
+	mkdir -p bin
 	$(CC) $(CFLAGS) -o $@ $(SOURCES)
 
 clean:
 	rm -f $(TARGET)
-
+	
 .PHONY: all debug release clean
