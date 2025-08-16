@@ -14,12 +14,7 @@ endif
 SOURCES := $(MAIN) $(ASSIGNMENT)
 TARGET := bin/assembler
 
-all: debug
-
-debug: $(TARGET)
-
-release: CFLAGS += -O2
-release: $(TARGET)
+all: $(TARGET)
 
 $(TARGET): $(SOURCES)
 	mkdir -p bin

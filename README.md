@@ -72,11 +72,8 @@ beq x23, x24, 8<br>
 Use `make` to compile the project:
 
 ```bash
-# Build debug version (with debug symbols)
-make debug
-
-# Build release version (optimized)
-make release
+# Build files
+make
 
 # Clean compiled files
 make clean
